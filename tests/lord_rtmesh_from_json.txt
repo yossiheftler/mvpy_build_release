@@ -1,0 +1,62 @@
+SetMemoryPool~1000~b
+##
+##
+##
+##
+##
+createfilterbyname~MVEndpointSourceFilter~JMVEndpointSourceFilter1~b
+setParams~JMVEndpointSourceFilter1~Source data address~192.168.77.112:5555-1;~b
+setParams~JMVEndpointSourceFilter1~Filter config path~C:\RingTeam\openmv4d\mvpy\uploads\MVEndPointTargetFilter_LastProfile.json~b
+##
+createfilterbyname~YAKDecoderFilter~JYAKDecoderFilter1~b
+setParams~JYAKDecoderFilter1~Threads count~1~b
+setParams~JYAKDecoderFilter1~Drop frames when occupied~False~b
+##
+createfilterbyname~#ChronosBasic~JChronosBasic1~b
+setParams~JChronosBasic1~Create log files~True~b
+setParams~JChronosBasic1~Bundle delta (msec)~10~b
+##
+createfilterbyname~Empty~JEmpty~b
+##
+##
+##
+##
+##
+createGraph~jeffGraph~b
+##
+##
+##
+##
+##
+attachFilter~jeffGraph~JMVEndpointSourceFilter1~b
+attachFilter~jeffGraph~JYAKDecoderFilter1~b
+attachFilter~jeffGraph~JChronosBasic1~b
+attachFilter~jeffGraph~JEmpty~b
+##
+##
+##
+##
+##
+getParams~jeffGraph~JMVEndpointSourceFilter1~b
+getParams~jeffGraph~JYAKDecoderFilter1~b
+getParams~jeffGraph~JChronosBasic1~b
+getParams~jeffGraph~JEmpty~b
+##
+##
+##
+##
+##
+runGraph~jeffGraph~255~b
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##

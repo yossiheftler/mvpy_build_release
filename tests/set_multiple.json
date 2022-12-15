@@ -1,0 +1,17 @@
+[
+    {
+        "Name": "#autodecompressor_1",
+        "ID": "#AutoDecompressor",
+        "PARAMS": {
+            "Drop compressed input": "False"
+        }
+    },
+    {
+        "Name": "mvx2filewriter_1",
+        "ID": "MVX2FileWriter",
+        "PARAMS":{
+            "Create thumbnail for first frame": "True",
+            "Write XML": "False"
+        }
+    }
+]

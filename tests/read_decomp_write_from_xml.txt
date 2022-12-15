@@ -1,0 +1,64 @@
+SetMemoryPool~1000~b
+##
+##
+##
+##
+##
+createfilterbyname~MVX2FileReader~mvx2filereader_1~b
+setParams~mvx2filereader_1~MVX File Path~C:\Users\USER\Desktop\1\mvpy_build_release\tests\morning.mvx~b
+##
+createfilterbyname~#AutoDecompressor~#autodecompressor_1~b
+setParams~#autodecompressor_1~Drop compressed input~True~b
+##
+createfilterbyname~MVX2FileWriter~mvx2filewriter_1~b
+setParams~mvx2filewriter_1~Keep {MERGED_POISSON/StreamInfo/NIL}~True~b
+setParams~mvx2filewriter_1~Keep {MV4D/CylinderCrop/NIL}~True~b
+setParams~mvx2filewriter_1~Keep {MERGED_POISSON/VertexPositions/NIL}~True~b
+setParams~mvx2filewriter_1~Keep {MERGED_POISSON/VertexNormals/NIL}~True~b
+setParams~mvx2filewriter_1~Keep {MERGED_POISSON/VertexIndices/NIL}~True~b
+setParams~mvx2filewriter_1~Keep {MERGED_POISSON/VertexTextureUVs/NIL}~True~b
+setParams~mvx2filewriter_1~Keep {MERGED_POISSON/TextureRGB/NIL}~True~b
+setParams~mvx2filewriter_1~MVX File Path~C:/gen/genesis_mvx6_0905/record.mvx~b
+setParams~mvx2filewriter_1~Write XML~True~b
+setParams~mvx2filewriter_1~Create thumbnail for first frame~False~b
+setParams~mvx2filewriter_1~Enable Recording~False~b
+##
+##
+##
+##
+##
+createGraph~jeffGraph~b
+##
+##
+##
+##
+##
+attachFilter~jeffGraph~mvx2filereader_1~b
+attachFilter~jeffGraph~#autodecompressor_1~b
+attachFilter~jeffGraph~mvx2filewriter_1~b
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+runGraph~jeffGraph~3~b
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##

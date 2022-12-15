@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genesis version="1.0">
+    <mvxpipeline playmode="3" playspeed="0">
+        <filter guid="b74863f3-13cf-47a0-9f90-07718fc52ab6" name="MVX2FileReader" positionx="18" positiony="3" width="10" height="1" selected="0" rendered="0">
+            <parameters>
+                <parameter name="MVX File Path" value="$INPUT$"/>
+            </parameters>
+        </filter>
+        <filter guid="9405a7fa-0533-4ce6-8f87-8a5407410904" name="#AutoDecompressor" positionx="18" positiony="4" width="10" height="1" selected="0" rendered="0">
+            <parameters>
+                <parameter name="Drop compressed input" value="True"/>
+            </parameters>
+        </filter>
+        <filter guid="972ee495-eb8e-48a8-ab94-43797e34a436" name="MVX2FileWriter" positionx="18" positiony="5" width="10" height="1" selected="1" rendered="0">
+            <parameters>
+                <parameter name="Keep {MERGED_POISSON/StreamInfo/NIL}" value="True"/>
+                <parameter name="Keep {MV4D/CylinderCrop/NIL}" value="True"/>
+                <parameter name="Keep {MERGED_POISSON/VertexPositions/NIL}" value="True"/>
+                <parameter name="Keep {MERGED_POISSON/VertexNormals/NIL}" value="True"/>
+                <parameter name="Keep {MERGED_POISSON/VertexIndices/NIL}" value="True"/>
+                <parameter name="Keep {MERGED_POISSON/VertexTextureUVs/NIL}" value="True"/>
+                <parameter name="Keep {MERGED_POISSON/TextureRGB/NIL}" value="True"/>
+                <parameter name="MVX File Path" value="C:/gen/genesis_mvx6_0905/record.mvx"/>
+                <parameter name="Write XML" value="True"/>
+                <parameter name="Create thumbnail for first frame" value="False"/>
+                <parameter name="Enable Recording" value="False"/>
+            </parameters>
+        </filter>
+    </mvxpipeline>
+</genesis>

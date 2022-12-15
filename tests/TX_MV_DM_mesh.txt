@@ -1,0 +1,185 @@
+setAgent~192.168.41.8:8888~b
+SetMemoryPool~1000~b
+cleanAll~b
+
+
+createfilterbyname~MV4DDevices~devices~b
+setParams~devices~Memory Poll Size~50
+setParams~devices~FPS~26
+setParams~devices~Master Slave~False
+setParams~devices~Slave Delay~3.85
+setParams~devices~IR Camera  0 : Binning~0
+setParams~devices~IR Camera  0 : Gain~1.200000
+setParams~devices~IR Camera  0 : Exposure~0.50000
+setParams~devices~Color Camera  0 : INI Config~c:\nuc\ring_it\configs\config308xCP_C1.ini
+setParams~devices~Color Camera  0 : Gain~0
+setParams~devices~Color Camera  0 : Exposure~4
+setParams~devices~Color Camera  1 : INI Config~c:\nuc\ring_it\configs\config308xCP_C2.ini
+setParams~devices~Color Camera  1 : Gain~0
+setParams~devices~Color Camera  1 : Exposure~4
+
+
+createfilterbyname~#AddVoCamSetup~vocam~b
+setParams~vocam~StreamId~8
+setParams~vocam~config.ecfg~c:\nuc\ring_it\Configs\config.ecfg
+setParams~vocam~rig.txt~c:\nuc\ring_it\Configs\rig.txt
+setParams~vocam~colorRig.txt~c:\nuc\ring_it\Configs\colorrig.txt
+setParams~vocam~colorRig_2.txt~c:\nuc\ring_it\Configs\colorrig_2.txt
+setParams~vocam~colorRig_C2C.txt~c:\nuc\ring_it\Configs\colorrig_c2c.txt
+setParams~vocam~Cylinder crop~c:\nuc\ring_it\Configs\CylinderCropParams.cfg
+setParams~vocam~Transform matrix~c:\nuc\ring_it\Configs\transform.txt
+setParams~vocam~PhotoGrammetryInfo~c:\nuc\ring_it\Configs\PhotogrammetryInfo.txt
+
+
+createfilterbyname~#MV4DDecoder~decoder~b
+setParams~decoder~Use embedded files~True~b
+setParams~decoder~Enable cylinder cut~True~b
+
+setParams~decoder~Decode positions~True~b
+setParams~decoder~Decode normals~True~b
+setParams~decoder~Decode colors~False~b
+setParams~decoder~Decode accuracies~False~b
+setParams~decoder~Decode depthmap~True~b
+setParams~decoder~Depthmap scale (1.0 normal)~0.5~b
+setParams~decoder~Apply calibration fix~True~b
+setParams~decoder~Dummy output~True~b
+
+createfilterbyname~MV4DCameraParamsFilter~camParamsIR~b
+setParams~camParamsIR~Use embedded files~True
+setParams~camParamsIR~Component type~0
+
+
+createfilterbyname~MV4DCameraParamsFilter~camParamsC~b
+setParams~camParamsC~Use embedded files~True
+setParams~camParamsC~Component type~1
+
+createfilterbyname~MV4DCameraParamsFilter~camParamsCC~b
+setParams~camParamsCC~Use embedded files~True
+setParams~camParamsCC~Component type~2
+
+createfilterbyname~#DataLayersDropper~dropIR~b
+setParams~dropIR~Drop {MV4D/TextureIR/NIL}~False
+
+createfilterbyname~#TextureZeroTF~TextureZero~b
+setParams~TextureZero~New Width~1
+setParams~TextureZero~New Height~1
+setParams~TextureZero~Zeroed Stream IDs~-1
+setParams~TextureZero~Resize rgb (6f0022f4-a3d5-4cca-8dac-adcc3b37c839)~False
+setParams~TextureZero~Resize rgb (44aa3f2b-bd87-4b70-8bf7-7ef34bb97ef3)~True
+
+createfilterbyname~#TextureResizerSubsample~resizerSubsample1~b
+setParams~resizerSubsample1~Resize rgb (44aa3f2b-bd87-4b70-8bf7-7ef34bb97ef3)~true
+setParams~resizerSubsample1~Scale~2
+
+createfilterbyname~#TextureResizerSubsample~resizerSubsample2~b
+setParams~resizerSubsample2~Resize rgb (6f0022f4-a3d5-4cca-8dac-adcc3b37c839)~true
+setParams~resizerSubsample2~Scale~2
+
+
+createfilterbyname~TextureRGBtoNVX~TextureRGBtoNVX_01~b
+setParams~TextureRGBtoNVX_01~Input Profile~0
+
+createfilterbyname~TextureRGBtoNVX~TextureRGBtoNVX_02~b
+setParams~TextureRGBtoNVX_02~Input Profile~1
+
+
+createFilter~5A383332-F266-4B60-BC35-69AFFA8A506F~yakEncoderNode
+setParams~yakEncoderNode~Photogrammetry target IQuality dB~45
+setParams~yakEncoderNode~Photogrammetry target UVQuality dB~55
+setParams~yakEncoderNode~DepthMap target IQuality dB~100
+setParams~yakEncoderNode~DepthMap target UVQuality dB~100
+setParams~yakEncoderNode~Target IQuality dB~45
+setParams~yakEncoderNode~Target UVQuality dB~45
+
+
+createfilterbyname~#DataLayersDropper~drop~b
+setParams~drop~Drop {MV4D/VertexColors/NIL}~True
+setParams~drop~Drop {PHOTOGRAMMETRY/TextureYUV_NVX/NIL}~True
+setParams~drop~Drop {MV4D/Texture16BitDepthMap/NIL}~True
+setParams~drop~Drop {MV4D/TextureYUV_NVX/NIL}~True
+setParams~drop~Drop {MV4D/TextureRGB/NIL}~True
+setParams~drop~Drop {PHOTOGRAMMETRY/TextureRGB/NIL}~True
+setParams~drop~Drop {MV4D/TextureIR/NIL}~True
+
+
+createfilterbyname~MVX2FileWriterAsync~filewriter~b
+setParams~filewriter~MVX File Path~c:\Storage\devices_decoder_out_8.mvx
+setParams~filewriter~Buffer size~15
+setParams~filewriter~Enable Recording~False
+
+
+createfilterbyname~StreamAnalyzer~analyzer~b
+setParams~analyzer~Skipped Frames~250
+setParams~analyzer~Label~stream_8
+setParams~analyzer~Data Layer Info~True
+
+
+createfilterbyname~MVEndpointTargetFilter~endpointTX~b
+setParams~endpointTX~Transmitter data address~192.168.41.254:5563
+setParams~endpointTX~Number of buffers~5
+setParams~endpointTX~Prioritize new frames~True 
+
+createfilterbyname~Empty~empty~b
+createfilter~6DBA9EB6-E9B7-4868-981D-F9CD2B767B49~LTcheck4~b
+setParams~LTcheck4~Label~postRX
+setParams~LTcheck4~Calc Avg every X frames~333
+setParams~LTcheck4~Printf output~True
+
+createfilter~6DBA9EB6-E9B7-4868-981D-F9CD2B767B49~latency9~b
+setParams~latency9~Label~afterDevice
+setParams~latency9~Calc Avg every X frames~333
+setParams~latency9~Printf output~True
+
+createfilter~6DBA9EB6-E9B7-4868-981D-F9CD2B767B49~latency0~b
+setParams~latency0~Label~afterDecode
+setParams~latency0~Calc Avg every X frames~333
+setParams~latency0~Printf output~True
+
+createfilter~6DBA9EB6-E9B7-4868-981D-F9CD2B767B49~latency1~b
+setParams~latency1~Label~afterResizer
+setParams~latency1~Calc Avg every X frames~333
+setParams~latency1~Printf output~True
+
+createfilter~6DBA9EB6-E9B7-4868-981D-F9CD2B767B49~latency2~b
+setParams~latency2~Label~afterConverts
+setParams~latency2~Calc Avg every X frames~333
+setParams~latency2~Printf output~True
+
+createfilter~6DBA9EB6-E9B7-4868-981D-F9CD2B767B49~latencyYak~b
+setParams~latencyYak~Label~afterYak
+setParams~latencyYak~Calc Avg every X frames~333
+setParams~latencyYak~Printf output~True
+
+createfilter~33e01f7d-46c2-4cab-b8de-cb78ae1022e2~TimeStampUpdater1
+
+createFilter~46062865-7aab-4f9a-97d9-45b6d45734d1~TSanalyzer
+setParams~TSanalyzer~Enabled Stream Frame Diff~True
+
+createGraph~myGraph~b
+
+attachFilter~myGraph~devices~b
+attachFilter~myGraph~vocam~b
+attachFilter~myGraph~latency9~b
+attachFilter~myGraph~decoder~b
+attachFilter~myGraph~camParamsIR~b
+attachFilter~myGraph~camParamsC~b
+attachFilter~myGraph~camParamsCC~b
+attachFilter~myGraph~filewriter~b
+attachFilter~myGraph~latency0~b
+attachFilter~myGraph~resizerSubsample1~b
+attachFilter~myGraph~resizerSubsample2~b
+attachFilter~myGraph~latency1~b
+attachFilter~myGraph~TextureZero~b
+attachFilter~myGraph~TextureRGBtoNVX_01~b
+attachFilter~myGraph~TextureRGBtoNVX_02~b
+attachFilter~myGraph~latency2~b
+attachFilter~myGraph~yakEncoderNode~b
+attachFilter~myGraph~latencyYak~b
+attachFilter~myGraph~drop~b
+attachFilter~myGraph~analyzer~b
+attachFilter~myGraph~endpointTX~b	
+attachFilter~myGraph~LTcheck4~b
+attachFilter~myGraph~empty~b
+
+runGraph~myGraph~255
+

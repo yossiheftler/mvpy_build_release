@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genesis version="1.0">
+    <mvxpipeline playmode="255" playspeed="0">
+        <filter guid="65b28abf-e18b-4def-8402-0694d1c0bae9" name="MV4DDevices" positionx="4" positiony="2" width="10" height="1" selected="0" rendered="0">
+            <parameters>
+                <parameter name="Connected Devices" value="0"/>
+                <parameter name="Device Name" value="MantisVision::Dahua"/>
+                <parameter name="Device ID" value="0"/>
+                <parameter name="FPS" value="0.000000"/>
+                <parameter name="Master Slave" value="True"/>
+                <parameter name="Slave Delay" value="0.000000"/>
+                <parameter name="Memory Poll Size" value="10"/>
+                <parameter name="Orientation" value="0"/>
+                <parameter name="Poll Hardware Values" value="False"/>
+                <parameter name="Talli State" value="False"/>
+                <parameter name="IR Camera  0 : INI Config" value="C:/ring_it/dauha_rigs/DH-MV-A5131MU210E_IR.mvcfg"/>
+                <parameter name="IR Camera  0 : AGC" value="False"/>
+                <parameter name="IR Camera  0 : Exposure" value="1.000000"/>
+                <parameter name="IR Camera  0 : Gain" value="1.000000"/>
+                <parameter name="IR Camera  0 : AGC Roi Width Precent" value="0"/>
+                <parameter name="IR Camera  0 : AGC Roi Height Precent" value="0"/>
+                <parameter name="IR Camera  0 : Binning" value="0"/>
+                <parameter name="IR Camera  0 : AGC Config" value="AutoGainConfig/AutoGainControl.cfg"/>
+                <parameter name="Color Camera  0 : INI Config" value="C:/ring_it/dauha_rigs/DH-MV-A7500CU35E_C1.mvcfg"/>
+                <parameter name="Color Camera  0 : AGC" value="False"/>
+                <parameter name="Color Camera  0 : Exposure" value="7.000000"/>
+                <parameter name="Color Camera  0 : Gain" value="1.000000"/>
+                <parameter name="Color Camera  0 : AGC Roi Width Precent" value="0"/>
+                <parameter name="Color Camera  0 : AGC Roi Height Precent" value="0"/>
+                <parameter name="Color Camera  0 : Binning" value="0"/>
+                <parameter name="Color Camera  0 : AGC Config" value="AutoGainConfig/AutoGainControlColor.cfg"/>
+                <parameter name="Color Camera  0 : Raw Mode" value="False"/>
+                <parameter name="Color Camera  0 : WB Manual Values" value="0.000000/0.000000/0.000000"/>
+                <parameter name="Color Camera  0 : HSV Manual Values" value="1.000000/1.000000/1.000000"/>
+                <parameter name="Color Camera  1 : INI Config" value="C:/ring_it/dauha_rigs/DH-MV-A7500CU35E_C2.mvcfg"/>
+                <parameter name="Color Camera  1 : AGC" value="False"/>
+                <parameter name="Color Camera  1 : Exposure" value="7.000000"/>
+                <parameter name="Color Camera  1 : Gain" value="1.000000"/>
+                <parameter name="Color Camera  1 : AGC Roi Width Precent" value="0"/>
+                <parameter name="Color Camera  1 : AGC Roi Height Precent" value="0"/>
+                <parameter name="Color Camera  1 : Binning" value="0"/>
+                <parameter name="Color Camera  1 : AGC Config" value="AutoGainConfig/AutoGainControlColor.cfg"/>
+                <parameter name="Color Camera  1 : Raw Mode" value="False"/>
+                <parameter name="Color Camera  1 : WB Manual Values" value="0.000000/0.000000/0.000000"/>
+                <parameter name="Color Camera  1 : HSV Manual Values" value="1.000000/1.000000/1.000000"/>
+                <parameter name="Suspended" value="False"/>
+                <parameter name="CLI_TEST" value="$PORT$"/>
+            </parameters>
+        </filter>
+    </mvxpipeline>
+</genesis>

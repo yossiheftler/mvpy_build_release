@@ -1,0 +1,83 @@
+SetMemoryPool~1000~b
+##
+##
+##
+##
+##
+createfilterbyname~MV4DDevices~mv4ddevices_1~b
+setParams~mv4ddevices_1~Connected Devices~0~b
+setParams~mv4ddevices_1~Device Name~MantisVision::Dahua~b
+setParams~mv4ddevices_1~Device ID~0~b
+setParams~mv4ddevices_1~FPS~0.000000~b
+setParams~mv4ddevices_1~Master Slave~True~b
+setParams~mv4ddevices_1~Slave Delay~0.000000~b
+setParams~mv4ddevices_1~Memory Poll Size~10~b
+setParams~mv4ddevices_1~Orientation~0~b
+setParams~mv4ddevices_1~Poll Hardware Values~False~b
+setParams~mv4ddevices_1~Talli State~False~b
+setParams~mv4ddevices_1~IR Camera  0 : INI Config~C:/ring_it/dauha_rigs/DH-MV-A5131MU210E_IR.mvcfg~b
+setParams~mv4ddevices_1~IR Camera  0 : AGC~False~b
+setParams~mv4ddevices_1~IR Camera  0 : Exposure~1.000000~b
+setParams~mv4ddevices_1~IR Camera  0 : Gain~1.000000~b
+setParams~mv4ddevices_1~IR Camera  0 : AGC Roi Width Precent~0~b
+setParams~mv4ddevices_1~IR Camera  0 : AGC Roi Height Precent~0~b
+setParams~mv4ddevices_1~IR Camera  0 : Binning~0~b
+setParams~mv4ddevices_1~IR Camera  0 : AGC Config~AutoGainConfig/AutoGainControl.cfg~b
+setParams~mv4ddevices_1~Color Camera  0 : INI Config~C:/ring_it/dauha_rigs/DH-MV-A7500CU35E_C1.mvcfg~b
+setParams~mv4ddevices_1~Color Camera  0 : AGC~False~b
+setParams~mv4ddevices_1~Color Camera  0 : Exposure~7.000000~b
+setParams~mv4ddevices_1~Color Camera  0 : Gain~1.000000~b
+setParams~mv4ddevices_1~Color Camera  0 : AGC Roi Width Precent~0~b
+setParams~mv4ddevices_1~Color Camera  0 : AGC Roi Height Precent~0~b
+setParams~mv4ddevices_1~Color Camera  0 : Binning~0~b
+setParams~mv4ddevices_1~Color Camera  0 : AGC Config~AutoGainConfig/AutoGainControlColor.cfg~b
+setParams~mv4ddevices_1~Color Camera  0 : Raw Mode~False~b
+setParams~mv4ddevices_1~Color Camera  0 : WB Manual Values~0.000000/0.000000/0.000000~b
+setParams~mv4ddevices_1~Color Camera  0 : HSV Manual Values~1.000000/1.000000/1.000000~b
+setParams~mv4ddevices_1~Color Camera  1 : INI Config~C:/ring_it/dauha_rigs/DH-MV-A7500CU35E_C2.mvcfg~b
+setParams~mv4ddevices_1~Color Camera  1 : AGC~False~b
+setParams~mv4ddevices_1~Color Camera  1 : Exposure~7.000000~b
+setParams~mv4ddevices_1~Color Camera  1 : Gain~1.000000~b
+setParams~mv4ddevices_1~Color Camera  1 : AGC Roi Width Precent~0~b
+setParams~mv4ddevices_1~Color Camera  1 : AGC Roi Height Precent~0~b
+setParams~mv4ddevices_1~Color Camera  1 : Binning~0~b
+setParams~mv4ddevices_1~Color Camera  1 : AGC Config~AutoGainConfig/AutoGainControlColor.cfg~b
+setParams~mv4ddevices_1~Color Camera  1 : Raw Mode~False~b
+setParams~mv4ddevices_1~Color Camera  1 : WB Manual Values~0.000000/0.000000/0.000000~b
+setParams~mv4ddevices_1~Color Camera  1 : HSV Manual Values~1.000000/1.000000/1.000000~b
+setParams~mv4ddevices_1~Suspended~False~b
+setParams~mv4ddevices_1~CLI_TEST~5555~b
+##
+##
+##
+##
+##
+createGraph~jeffGraph~b
+##
+##
+##
+##
+##
+attachFilter~jeffGraph~mv4ddevices_1~b
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##
+runGraph~jeffGraph~255~b
+##
+##
+##
+##
+##
+##
+##
+##
+##
+##

@@ -1,0 +1,32 @@
+[
+    {
+        "Name": "JMVEndpointSourceFilter1",
+        "ID": "MVEndpointSourceFilter",
+        "PARAMS": {
+            "Source data address": "$LORDIP$:$PORT$-$NUM$;",
+            "Filter config path": "C:\\RingTeam\\openmv4d\\mvpy\\uploads\\MVEndPointTargetFilter_LastProfile.json"
+        }
+    },
+    {
+    "Name": "JYAKDecoderFilter1",
+    "ID": "YAKDecoderFilter",
+    "PARAMS": {
+        "Threads count": "1",
+        "Drop frames when occupied": "False"
+              }
+    },
+    {
+        "Name": "JChronosBasic1",
+        "ID": "#ChronosBasic",
+        "PARAMS": {
+          "Create log files": "True",
+          "Bundle delta (msec)": "10"
+        }
+    },
+    {
+        "Name": "JEmpty",
+        "ID": "Empty",
+        "PARAMS": {
+        }
+    }
+]
